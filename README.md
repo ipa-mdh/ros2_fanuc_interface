@@ -20,7 +20,8 @@ The code was tested on real hardware on Fanuc CRX-10iaL and CRX-20iaL with R30iB
 5. [Usage](#usage)
 6. [DPM](#dpm)
 7. [Known issues](#issues)
-7. [Citation](#citation)
+8. [Citation](#citation)
+9. [License](#license)
 
 ## Prerequisites <a name="prerequisites"></a>
 
@@ -230,3 +231,5 @@ If you use this repository, please cite it as:
 ```
 
 
+## License <a name="license"></a>
+This project is licensed under the [Apache License 2.0](LICENSE).
