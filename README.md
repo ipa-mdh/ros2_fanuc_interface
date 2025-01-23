@@ -20,6 +20,7 @@ The code was tested on real hardware on Fanuc CRX-10iaL and CRX-20iaL with R30iB
 5. [Usage](#usage)
 6. [DPM](#dpm)
 7. [Known issues](#issues)
+7. [Citation](#citation)
 
 ## Prerequisites <a name="prerequisites"></a>
 
@@ -197,14 +198,35 @@ In the [dpm_params.yaml](https://github.com/paolofrance/ros2_fanuc_interface/blo
 list of known todos and desiderata:  
 1. integration of the Fanuc DPM into the ros control framework
 
-## Contacts
-Hardware Interface & Ethernet/IP driver: paolo.franceschi@supsi.ch  
+## Disclaimer
+The authors of these packages are not affiliated with FANUC Corporation in any way. All trademarks and registered trademarks are property of their respective owners, and company, product and service names mentioned in this readme or appearing in source code or other artefacts in this repository are used for identification purposes only. Use of these names does not imply endorsement by FANUC Corporation.
+
+## Contributors
+Hardware Interface & Ethernet/IP driver: paolo.franceschi@supsi.ch
+Maintainers: marco.faroni@polimi.it, paolo.franceschi@supsi.ch
 RMI driver: matteo.lavit@stiima.cnr.it  
 TP fanuc and services: stefano.baraldo@supsi.ch, andrea.bussolan@supsi.ch  
 Tester and user: vincenzo.pomponi@supsi.ch  
 
 ## Acknowledgements <a name="ack"></a>
 This package is developed by the [ARM (Automation Robotics and Machines Laboratory)](https://sites.supsi.ch/isteps_en/Laboratories/gruppo1.html) at SUPSI, Lugano, CH. 
+This package is maintained also by PoliMi.
 This package also uses components developed by CNR-SIIMA, Lecco.   
 The EU project [Fluently](https://www.fluently-horizonproject.eu/) partially funded the development of this package.
+
+## Citation <a name="citation"></a>
+
+If you use this repository, please cite it as:
+
+```bibtex
+@misc{ros2_fanuc_interface,
+  author = {Paolo Franceschi, Marco Faroni},
+  title = {ros2_fanuc_interface},
+  year = {2024},
+  publisher = {GitHub},
+  journal = {GitHub Repository},
+  howpublished = {\url{https://github.com/paolofrance/ros2_fanuc_interface/}},
+}
+```
+
 

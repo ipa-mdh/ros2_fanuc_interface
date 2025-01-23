@@ -14,7 +14,7 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             "robot_type",
-            default_value="crx20ia_l",
+            default_value="crx25ia_l",
             description="model of the fanuc robot. ",
         )
     )

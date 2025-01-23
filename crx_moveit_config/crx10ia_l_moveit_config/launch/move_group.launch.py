@@ -3,5 +3,5 @@ from moveit_configs_utils.launches import generate_move_group_launch
 
 
 def generate_launch_description():
-    moveit_config = MoveItConfigsBuilder("crx10ia_l", package_name="crx10ia_l_moveit_config").trajectory_execution(file_path="config/moveit_controllers.yaml").to_moveit_configs()
+    moveit_config = MoveItConfigsBuilder("crx10ia_l", package_name="crx10ia_l_moveit_config").to_moveit_configs()
     return generate_move_group_launch(moveit_config)
