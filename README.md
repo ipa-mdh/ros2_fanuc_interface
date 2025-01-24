@@ -1,7 +1,7 @@
 # Fanuc_CRX_ROS2_Driver
 
 This repository implements a ros2 hardware interface for the CRX family Fanuc robots. 
-The code was tested on real hardware on Fanuc CRX-10iaL and CRX-20iaL with R30iB Mini Plus controller.
+The code was tested on real hardware on Fanuc CRX-10iA/L, CRX-20iA/L, and CRX-25iA with R30iB Mini Plus controller.
 
 **OS: Ubuntu 22.04**
 
