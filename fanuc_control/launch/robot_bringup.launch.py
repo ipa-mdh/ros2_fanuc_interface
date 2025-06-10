@@ -157,6 +157,11 @@ def launch_setup(context, *args, **kwargs):
         executable="spawner",
         arguments=["manipulator_controller", "-c", "/controller_manager"],
     )
+    controller_spawner_inactive = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["--inactive","forward_position_controller", "-c", "/controller_manager"],
+    )
 
     move_group = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([os.path.join(get_package_share_directory(robot_type_str+'_moveit_config'),'launch', 'move_group.launch.py')])
@@ -175,6 +180,7 @@ def launch_setup(context, *args, **kwargs):
         control_node,
         joint_state_broadcaster_spawner,
         controller_spawner_started,
+        controller_spawner_inactive,
         robot_state_publisher_node,
         move_group,
         moveit_rviz,

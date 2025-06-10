@@ -62,6 +62,7 @@ protected:
 
   std::vector<double> joint_position_command_;
   std::vector<double> joint_position_;
+  std::vector<double> joint_position_prev_;
   std::vector<double> joint_velocities_;
 
 private:

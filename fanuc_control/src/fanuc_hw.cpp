@@ -92,11 +92,12 @@ CallbackReturn FanucHw::on_init(const hardware_interface::HardwareInfo & info)
     RCLCPP_INFO_STREAM(logger_,"Initialized EIP driver at ip: " << robot_ip );
   }
 
-  std::vector<double> j_pos={0,0,0,0,0,0};
+  std::vector<double> j_pos={0.0,0.0,0.0,0.0,0.0,0.0};
   
-  joint_position_.resize(6);
-  joint_velocities_.resize(6);
-  joint_position_command_.resize(6); 
+  joint_position_        .resize(6, 0.0);
+  joint_position_prev_   .resize(6, 0.0);
+  joint_velocities_      .resize(6, 0.0);
+  joint_position_command_.resize(6, 0.0); 
 
   joint_names_.resize(joint_position_.size());
   for (size_t j = 0; j < joint_position_.size(); ++j)
@@ -175,7 +176,7 @@ std::vector<hardware_interface::CommandInterface> FanucHw::export_command_interf
   return command_interfaces;
 }
 
-return_type FanucHw::read(const rclcpp::Time & /*time*/, const rclcpp::Duration & /*period*/)
+return_type FanucHw::read(const rclcpp::Time & /*time*/, const rclcpp::Duration & period)
 {
 
   std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
@@ -201,10 +202,12 @@ return_type FanucHw::read(const rclcpp::Time & /*time*/, const rclcpp::Duration 
     cp = EIP_driver_->get_current_pose();
   }
 
+  double dt = period.seconds();
   for (size_t j = 0; j < joint_position_command_.size(); ++j)
   {
     joint_position_[j] = jp[j];
-    joint_velocities_[j] = 0.0; // TODO: not implemented yet
+    joint_velocities_[j] = (jp[j] - joint_position_prev_[j]) / dt;
+    joint_position_prev_[j] = jp[j];
 
     RCLCPP_DEBUG_STREAM(logger_,jp[j]);
   }  
