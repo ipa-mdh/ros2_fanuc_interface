@@ -16,7 +16,8 @@ find_package(rosidl_default_generators REQUIRED)
 
 find_package(fanuc_srvs_msgs REQUIRED)
 
-include_directories(/usr/local/include/EIPScanner)
+include_directories(${EIPScanner_INCLUDE_DIRS})
+include_directories(${EIPScanner_INCLUDE_DIRS}/EIPScanner)
 
 add_executable(fanuc_srvs src/fanuc_srvs.cpp)
 ament_target_dependencies(fanuc_srvs fanuc_srvs_msgs rclcpp std_srvs  fanuc_eth_ip)
