@@ -7,4 +7,19 @@ moveit_setup_assistant_config:
   package_settings:
     author_name: marco.faroni
     author_email: marco.faroni@polimi.it
-    generated_timestamp: 1737719806
+    generated_timestamp: 1752075634
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity

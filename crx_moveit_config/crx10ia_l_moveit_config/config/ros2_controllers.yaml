@@ -20,6 +20,7 @@ manipulator_controller:
       - J5
       - J6
     command_interfaces:
-      []
+      - position
     state_interfaces:
-      []
+      - position
+      - velocity

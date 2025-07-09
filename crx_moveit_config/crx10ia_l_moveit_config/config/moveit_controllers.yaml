@@ -13,8 +13,6 @@ moveit_simple_controller_manager:
 
   manipulator_controller:
     type: FollowJointTrajectory
-    action_ns: follow_joint_trajectory
-    default: true
     joints:
       - J1
       - J2
