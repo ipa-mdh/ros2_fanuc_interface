@@ -126,6 +126,8 @@ namespace rmi
     if (initSocket(16001) == 0)
     {
       sendRequest(rmi_comm.cmc_Connect());
+      sendRequest(rmi_comm.cmc_Disconnect()); // prevent connection issues due to previous connection attempts
+      sendRequest(rmi_comm.cmc_Connect());
       auto start = std::chrono::steady_clock::now();
       while (state != State::CONNECTED)
       {
