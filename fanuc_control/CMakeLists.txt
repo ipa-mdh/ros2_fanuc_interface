@@ -26,7 +26,8 @@ find_package(rosidl_default_generators REQUIRED)
 find_package(Boost REQUIRED)
 
 
-include_directories(/usr/local/include/EIPScanner)
+include_directories(${EIPScanner_INCLUDE_DIRS})
+include_directories(${EIPScanner_INCLUDE_DIRS}/EIPScanner)
 include_directories(include)
 include_directories( ${Boost_INCLUDE_DIRS} )
 
@@ -44,6 +45,8 @@ add_library(fanuc SHARED  src/fanuc_hw.cpp)
 target_compile_features(fanuc PUBLIC cxx_std_17)
 target_include_directories(fanuc PUBLIC
 $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
+$<BUILD_INTERFACE:${EIPScanner_INCLUDE_DIRS}>
+$<BUILD_INTERFACE:${EIPScanner_INCLUDE_DIRS}/EIPScanner>
 $<INSTALL_INTERFACE:include/fanuc>
 )
 
@@ -83,6 +86,8 @@ DESTINATION lib/${PROJECT_NAME})
 
 ament_export_targets(fanuc HAS_LIBRARY_TARGET)
 ament_export_include_directories(include)
+ament_export_include_directories(${EIPScanner_INCLUDE_DIRS})
+ament_export_include_directories(${EIPScanner_INCLUDE_DIRS}/EIPScanner)
 ament_export_dependencies(${HW_IF_INCLUDE_DEPENDS})
 
 ament_package()
